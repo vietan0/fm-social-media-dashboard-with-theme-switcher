@@ -1,0 +1,287 @@
+@use 'sass/reset';
+@use 'sass/vars';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;700;800&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css');
+
+// debug
+@mixin debug() {
+  outline: 1px solid hotpink;
+
+  > * {
+    outline: 1px dashed lightsalmon;
+  }
+}
+
+body {
+  font-family: 'Inter', Arial, Helvetica, sans-serif;
+}
+
+.attribution {
+  font-size: 13px;
+  text-align: center;
+}
+
+.App {
+  padding: 3rem max(1.5rem, 10vw);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  margin: auto;
+
+  // bg-top
+  &::before {
+    content: "";
+    border-radius: 0 0 2rem 2rem;
+    width: 100%;
+    height: 35vh;
+    top: 0;
+    left: 0;
+  }
+}
+
+// layering bg-top
+.App {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+
+  p {
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .right {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    p {
+      order: -1;
+    }
+  }
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  padding: 2rem 2rem;
+  border-radius: 4px;
+  overflow: hidden;
+
+  // diff colors
+  .up {
+    color: vars.$up;
+  }
+
+  .down {
+    color: vars.$down;
+  }
+}
+
+.big {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  text-align: center;
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+  }
+
+  &.facebook::before {
+    background: vars.$facebook;
+  }
+
+  &.twitter::before {
+    background: vars.$twitter;
+  }
+
+  &.instagram::before {
+    background: vars.$instagram;
+  }
+
+  &.youtube::before {
+    background: vars.$youtube;
+  }
+}
+
+.main-stat {
+  display: flex;
+  flex-direction: column;
+
+  .unit {
+    color: var(--subtext);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+}
+
+.small {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  > * {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .stat-name {
+    p {
+      font-weight: 600;
+    }
+  }
+
+  .stat {
+    align-items: flex-end;
+  }
+}
+
+.social-media,
+.diff {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+// number
+.number {
+  font-weight: 700;
+  letter-spacing: -1.5px;
+}
+
+.big .number {
+  font-size: 4rem;
+}
+
+.small .number {
+  font-size: 2rem;
+}
+
+// icons
+.bi {
+  font-size: 1.25rem;
+}
+
+.bi-caret-down-fill,
+.bi-caret-up-fill {
+  font-size: 1rem;
+}
+
+.bi-facebook {
+  color: vars.$facebook;
+}
+
+.bi-twitter {
+  color: vars.$twitter;
+}
+
+.bi-instagram {
+  color: transparent;
+  background: vars.$instagram;
+  background-clip: text;
+}
+
+.bi-youtube {
+  color: vars.$youtube;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// switch button
+// https://codepen.io/mburnette/pen/LxNxNg
+#switch {
+  display: none;
+}
+
+// the background
+label[for="switch"] {
+  border-radius: 100px;
+  background: vars.$toggle-off;
+  position: relative;
+  width: 50px;
+  height: 25px;
+  cursor: pointer;
+  text-indent: -9999px;
+}
+
+// the circle
+label[for="switch"]:after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  background: #fff;
+  border-radius: 1000px;
+  transition: 0.1s ease-out;
+}
+
+label[for="switch"]:hover ~ p {
+  font-weight: 700;
+  filter: brightness(var(--hover-brightness));
+}
+
+// #switch:checked + label[for="switch"] {
+//   background: vars.$toggle-on;
+// }
+
+// #switch:checked + label[for="switch"]:after {
+//   left: calc(100% - 4px);
+//   transform: translateX(-100%);
+// }
+
+label[for="switch"]:has(#switch:checked) {
+  background: vars.$toggle-on;
+}
+
+label[for="switch"]:has(#switch:checked)::after {
+  left: calc(100% - 4px);
+  transform: translateX(-100%);
+}
+
+@media (max-width: 664px) {
+  .header {
+    .right {
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+  }
+}

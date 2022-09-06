@@ -1,0 +1,58 @@
+@use "vars";
+
+// theme defining
+.App {
+  --bg: #{vars.$white};
+  --bg-top: #{vars.$pale-blue};
+  --text: #{vars.$very-dark-blue};
+  --card-bg: #{vars.$light-blue};
+  --subtext: #{vars.$dark-blue};
+  --hover-brightness: 0.9;
+}
+
+.App.dark {
+  --bg: #{vars.$very-dark-blue};
+  --bg-top: #{vars.$less-dark-blue};
+  --text: #{vars.$white};
+  --card-bg: #{vars.$dark-desat-blue};
+  --subtext: #{vars.$desat-blue};
+  --hover-brightness: 1.3;
+}
+
+// theme applying
+a {
+  color: var(--subtext);
+}
+
+.App {
+  background-color: var(--bg);
+  color: var(--text);
+  color-scheme: light;
+
+  &.dark {
+    color-scheme: dark;
+  }
+
+  // bg-top
+  &::before {
+    background-color: var(--bg-top);
+  }
+}
+
+.header p,
+.stat-name p {
+  color: var(--subtext);
+}
+
+.card {
+  background-color: var(--card-bg);
+
+  &:hover {
+    cursor: pointer;
+    filter: brightness(var(--hover-brightness));
+  }
+}
+
+.social-media {
+  color: var(--subtext);
+}

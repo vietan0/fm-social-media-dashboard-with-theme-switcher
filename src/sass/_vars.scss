@@ -1,0 +1,24 @@
+// color vars
+
+$up: hsl(163, 72%, 41%);
+$down: hsl(356, 69%, 56%);
+
+$facebook: hsl(208, 92%, 53%);
+$twitter: hsl(203, 89%, 53%);
+$instagram: linear-gradient(to top right, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+$youtube: hsl(348, 97%, 39%);
+
+$toggle-off: hsl(230, 22%, 74%);
+$toggle-on: linear-gradient(to right, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+
+// light theme colors
+$white: hsl(0, 0%, 100%); // light-bg / dark-text
+$pale-blue: hsl(225, 100%, 98%); // bg top
+$light-blue: hsl(227, 47%, 96%); // card bg
+$dark-blue: hsl(228, 12%, 44%); // secondary text
+
+// dark theme colors
+$very-dark-blue: hsl(230, 17%, 14%); // light-text / dark-bg
+$less-dark-blue: hsl(232, 19%, 15%); // bg top
+$dark-desat-blue: hsl(228, 28%, 20%); // card bg
+$desat-blue: hsl(228, 34%, 66%); // secondary text
