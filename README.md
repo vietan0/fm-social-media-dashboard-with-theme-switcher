@@ -60,8 +60,8 @@ Users should be able to:
 - Few `ESLint` problems I ran into:
   - `react/no-unknown-property` false positive `checked`: [GitHub Issue](https://github.com/jsx-eslint/eslint-plugin-react/issues/3383)
   - Airbnb's `label-has-associated-control` rule: [GitHub Issue](https://github.com/airbnb/javascript/issues/1885)
-- `isolation`, `z-index` and Stacking Context
 - Create a helpful outline:
+
 ```scss
 // @include wherever you want
 @mixin debug() {
@@ -71,6 +71,8 @@ Users should be able to:
   }
 }
 ```
+
+- `isolation`, `z-index` and Stacking Context
 
 ```scss
 // make a pseudo-element stay behind ONLY its siblings
