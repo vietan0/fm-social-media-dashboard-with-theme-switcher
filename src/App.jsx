@@ -13,7 +13,7 @@ function App() {
   }, []);
 
   return (
-    <div className={darkMode ? 'App dark' : 'App'}>
+    <main className={darkMode ? 'App dark' : 'App'}>
       <div className="header">
         <div className="left">
           <h1>Social Media Dashboard</h1>
@@ -142,7 +142,7 @@ function App() {
         <a href="https://github.com/vietan0"> Việt An</a>
         .
       </div>
-    </div>
+    </main>
   );
 }
 
