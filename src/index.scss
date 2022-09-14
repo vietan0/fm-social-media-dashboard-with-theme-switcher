@@ -249,7 +249,7 @@ label[for="switch"]:after {
   left: 3px;
   width: 19px;
   height: 19px;
-  background: #fff;
+  background: vars.$white;
   border-radius: 1000px;
   transition: 0.1s ease-out;
 }
@@ -259,20 +259,11 @@ label[for="switch"]:hover ~ p {
   filter: brightness(var(--hover-brightness));
 }
 
-// #switch:checked + label[for="switch"] {
-//   background: vars.$toggle-on;
-// }
-
-// #switch:checked + label[for="switch"]:after {
-//   left: calc(100% - 4px);
-//   transform: translateX(-100%);
-// }
-
-label[for="switch"]:has(#switch:checked) {
+#switch:checked + label[for="switch"] {
   background: vars.$toggle-on;
 }
 
-label[for="switch"]:has(#switch:checked)::after {
+#switch:checked + label[for="switch"]:after {
   left: calc(100% - 4px);
   transform: translateX(-100%);
 }

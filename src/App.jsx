@@ -20,13 +20,13 @@ function App() {
           <p className="subtext">Total Followers: 23,004</p>
         </div>
         <div className="right">
+          <input
+            type="checkbox"
+            id="switch"
+            onChange={() => setDarkMode((bool) => !bool)}
+            checked={darkMode}
+          />
           <label htmlFor="switch">
-            <input
-              type="checkbox"
-              id="switch"
-              onChange={() => setDarkMode((bool) => !bool)}
-              checked={darkMode}
-            />
             Toggle
           </label>
           <p>Dark Mode</p>
